@@ -11,5 +11,10 @@
 .square {
   
     border: 1px solid black;
-    text-align: center;
+
+}
+
+.black {
+    border: 1px solid black;
+    background-color: black;
 }
