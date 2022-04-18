@@ -1,7 +1,6 @@
 const grid = document.getElementById('sketch-container');
 const clearButton = document.getElementById('clear-button');
 
-
 function createGridDiv() {
     const div = document.createElement('div');
     div.classList.add('square');
@@ -26,10 +25,13 @@ if (newGrid > 100) {
     alert("That's too many squares!!! Enter a number lower than 100");
     clearGrid();
 }
+
+if (isNaN(newGrid)) {
+    alert("That's not a number!!! Enter a number lower than 100");
+    clearGrid();
+}
 return newGrid;
 }
-
-
 
 clearButton.addEventListener ("click", clearGrid )
 
