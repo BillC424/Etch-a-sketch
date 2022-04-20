@@ -1,12 +1,13 @@
 const grid = document.getElementById('sketch-container');
 const clearButton = document.getElementById('clear-button');
 
-
 function createGridDiv(gridSize) { for (i=0; i < gridSize * gridSize; i++) {
+    grid.style.gridTemplateColumns = 'repeat (newGrid, auto) ;';
     const div = document.createElement('div');
     div.classList.add('square');
     grid.appendChild(div);
     div.addEventListener ("mouseenter", function(){ div.classList.add('black'); } ) }
+    
 }
 
 createGridDiv(16);
@@ -18,7 +19,7 @@ for (let i = 0; i < clearSquare.length; i++) {
     grid.removeChild(clearSquare[i]);
 } 
 
-const newGrid = window.prompt("Enter a number for the number of squares per side of the new grid");
+let newGrid = window.prompt("Enter a number for the number of squares per side of the new grid");
 
 if (newGrid > 100) {
     alert("That's too many squares!!! Enter a number lower than 100");
@@ -35,8 +36,12 @@ if (newGrid === "0") {
     clearGrid();
 }
 
-createGridDiv(newGrid);
+if (newGrid === null) {
+    newGrid = 16;
+}
 
+createGridDiv(newGrid);
+grid.style.gridTemplateColumns = `repeat(${newGrid}, auto)`;
 }
 
 clearButton.addEventListener ("click", e => clearGrid() )
