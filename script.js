@@ -8,9 +8,10 @@ function addBlack(e) {
     blackSquare.classList.add('black');
 }
 
-function addGreen(e) {
-    const greenSquare = e.target;
-    greenSquare.classList.add('green');
+function addRainbow(e) {
+    const rainbowSquare = e.target;
+    const randomColor = Math.floor(Math.random()*16777215).toString(16);
+    rainbowSquare.style.backgroundColor = "#" + randomColor;
 }
 
 function createGridDiv(gridSize) { for (i=0; i < gridSize * gridSize; i++) {
@@ -19,8 +20,6 @@ function createGridDiv(gridSize) { for (i=0; i < gridSize * gridSize; i++) {
     square.classList.add('square');
     grid.appendChild(square);
     square.addEventListener ("mouseenter", addBlack  ) 
-
-    
 
 }
     
@@ -66,14 +65,11 @@ function rainbowGrid() {
     for (i=0; i < square.length; i++) {
     
         square[i].removeEventListener ("mouseenter", addBlack  ) 
-        square[i].addEventListener ("mouseenter", addGreen)  
-        
-        //square[i].addEventListener ("mouseenter", function(){ square[i].classList.add('green'); } )
+        square[i].addEventListener ("mouseenter", addRainbow)  
         
     }
     
     }
-
 
 clearButton.addEventListener ("click", e => clearGrid() )
 
