@@ -36,13 +36,13 @@ for (let i = 0; i < filledSquare.length; i++) {
 
 let newGrid = window.prompt("Enter a number for the number of squares per side of the new grid");
 
-if (newGrid > 100) {
+if (newGrid > 99) {
     alert("That's too many squares!!! Enter a number lower than 100");
     clearGrid();
 }
 
 if (isNaN(newGrid)) {
-    alert("That's not a number!!! Enter a number lower than 100");
+    alert("That's not a number!!! Enter a number");
     clearGrid();
 }
 
@@ -50,6 +50,11 @@ if (newGrid === "0") {
     alert("That won't work!!! Enter a number higher than 0");
     clearGrid();
 }
+
+if (Math.sign(newGrid) === -1) {
+    alert("You can't have a negative grid! Enter a positive number");
+    clearGrid();
+  }
 
 if (newGrid === null) {
     newGrid = 16;
