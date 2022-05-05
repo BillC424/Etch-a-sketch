@@ -38,8 +38,15 @@ let newGrid = window.prompt("Enter a number for the number of squares per side o
 
 if (newGrid > 99) {
     alert("That's too many squares!!! Enter a number lower than 100");
+    newGrid = 0;
     clearGrid();
 }
+
+if (Math.sign(newGrid) === -1) {
+    alert("You can't have a negative grid! Enter a positive number");
+    newGrid = 0;
+    clearGrid();
+  }
 
 if (isNaN(newGrid)) {
     alert("That's not a number!!! Enter a number");
@@ -50,11 +57,6 @@ if (newGrid === "0") {
     alert("That won't work!!! Enter a number higher than 0");
     clearGrid();
 }
-
-if (Math.sign(newGrid) === -1) {
-    alert("You can't have a negative grid! Enter a positive number");
-    clearGrid();
-  }
 
 if (newGrid === null) {
     newGrid = 16;
